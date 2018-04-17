@@ -6,7 +6,7 @@ namespace PassCypher
     internal class Setup
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        private static string[] Paths { get; set; }
+        private static string[] Paths = new string[3];/*{ get; set; }*/
         internal static void NewUser()
         {
             Format.Clear();
