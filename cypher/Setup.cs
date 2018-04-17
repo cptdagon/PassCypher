@@ -64,13 +64,18 @@ namespace PassCypher
         private static void Encrypt(string plaintext, string key, string path)
         {
             string encryptedstring = StringCipher.RjndlEncrypt(plaintext, key);
+            StreamWriter sw = null;
             try
             {
-                StreamWriter sw = new StreamWriter(path, true);
+                sw = new StreamWriter(path, true);
                 sw.WriteLine(encryptedstring);
-                sw.Close();
+                //sw.Close();
             }
             catch { }
+            finally
+            {
+                sw.Close();
+            }
         }
 
         public static string PasswordReadLine()

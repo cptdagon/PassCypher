@@ -8,34 +8,33 @@ namespace PassCypher
 {
     internal class Filereceiver
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
         public static void SendFile()
         {
+            Socket clientSock_client = null;
             try
             {
-                IPEndPoint ipEnd_client = new IPEndPoint(IPAddress.Parse("192.168.1.109"), 12345);
-                Socket clientSock_client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
                 string fileName = SessionParameters.Keypath;
                 byte[] fileData = File.ReadAllBytes(fileName);
                 byte[] clientData = new byte[fileData.Length];
                 byte[] fileNameByte = Encoding.UTF8.GetBytes(fileName);
-                
                 if (fileNameByte.Length > 5000 * 1024)
                 {
                     Console.WriteLine("File size is more than 5Mb, please try with small file.");
                     return;
                 }
 
+                IPEndPoint ipEnd_client = new IPEndPoint(IPAddress.Parse("192.168.1.109"), 12345);
+                clientSock_client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
+
                 Console.WriteLine("Buffering ...");
-                fileData.CopyTo(clientData, 0 );
+                fileData.CopyTo(clientData, 0);
 
                 Console.WriteLine("Connection to server...");
                 clientSock_client.Connect(ipEnd_client);
 
                 Console.WriteLine("File sending...");
                 clientSock_client.Send(clientData, 0, clientData.Length, 0);
-
-                Console.WriteLine("Disconnecting...");
-                clientSock_client.Close();
 
                 Console.WriteLine("File [" + fileName + "] transferred...");
             }
@@ -45,17 +44,22 @@ namespace PassCypher
                     Console.WriteLine("File Sending fail. Because server not running.");
                 else
                     Console.WriteLine("File Sending fail. " + e.Message);
-                return;
             }
-            return;
+            finally
+            {
+                Console.WriteLine("Disconnecting...");
+                clientSock_client.Close();
+            }
+           return;
         }
 
         public static void RecFile()
         {
+            Socket clientSock_client = null;
             try
             {
                 IPEndPoint ipEnd_client = new IPEndPoint(IPAddress.Parse("192.168.1.109"), 12345);
-                Socket clientSock_client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
+                clientSock_client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
                 byte[] flag = Encoding.UTF8.GetBytes("!!!");
                 byte[] recdata = new byte[1024];
 
@@ -79,7 +83,6 @@ namespace PassCypher
                 Console.WriteLine(data);  
                 
                 Console.WriteLine("Disconnecting...");
-                clientSock_client.Close();
             }
             catch (Exception e)
             {
@@ -87,8 +90,12 @@ namespace PassCypher
                     Console.WriteLine("File Receiving fail. Because server not running.");
                 else
                     Console.WriteLine("File Receiving fail. " + e.Message);
-                return;
             }
+            finally
+            {
+                clientSock_client.Close();
+            }
+            return;
         }
     }
 }

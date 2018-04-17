@@ -22,15 +22,21 @@ namespace PassCypher
             
             string plaintext = service + ": " + username + " " + tag;
             string encryptedstring = StringCipher.RjndlEncrypt(plaintext, SessionParameters.Pass);
+            StreamWriter sw = null;
             try
             {
-                StreamWriter sw = new StreamWriter(SessionParameters.Keypath, true);
+                sw = new StreamWriter(SessionParameters.Keypath, true);
                 sw.WriteLine(encryptedstring);
-                sw.Close();
+                //sw.Close();
             }
             catch (Exception e)
             {
                 Console.WriteLine("Exception: " + e.Message);
+            }
+            finally
+            {
+                sw.Close();
+
             }
             Format.Dash();
             Console.WriteLine("Your password string is:");
@@ -43,20 +49,25 @@ namespace PassCypher
         public static void Passwordload()
         {
             string encryptedstring;
+            StreamReader sr = null;
             try
             {               
-                StreamReader sr = new StreamReader(SessionParameters.Keypath);
+                sr = new StreamReader(SessionParameters.Keypath);
                 while ((encryptedstring = sr.ReadLine()) != null)
                 {                              
                     string decryptedstring = StringCipher.RjndlDecrypt(encryptedstring, SessionParameters.Pass);
                     Console.WriteLine("\n" + decryptedstring + "\n");
                     Format.Dash();
                 }
-                sr.Close();
+                //sr.Close();
             }
             catch (Exception e)
             {
                 Console.WriteLine("exception: " + e.Message);
+            }
+            finally
+            {
+                sr.Close();
             }
         }
     }

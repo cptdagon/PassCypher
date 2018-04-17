@@ -37,9 +37,10 @@ namespace PassCypher
             string encryptedstring;            
             path = Path.Combine("Users", user);
             path = Path.Combine(path, user + "_Master.txt");
+            StreamReader sr = null;
             try
             {
-                StreamReader sr = new StreamReader(path);
+                sr = new StreamReader(path);
                 while((encryptedstring = sr.ReadLine())!= null)
                 {
                     decryptedstring = StringCipher.RjndlDecrypt(encryptedstring, password);
@@ -48,7 +49,11 @@ namespace PassCypher
             catch (Exception e)
             {
                 Console.WriteLine("exception: " + e.Message);
-                return "null";
+                decryptedstring =  "null";
+            }
+            finally
+            {
+                sr.Close();
             }
             return (decryptedstring);
         }
