@@ -29,7 +29,7 @@ namespace PassCypher
                 decryptedstring = StringCipher.RjndlDecrypt(encryptedstring, masterkey);
                 SessionParameters.Mail = decryptedstring;
             }
-            catch { }
+            catch{}
         } 
         public static void Setmode()
         {
