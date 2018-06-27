@@ -66,7 +66,7 @@ namespace PassCypher
             catch
             {
                 //clientSock_client.Close();
-                b = false ;
+                b = false;
             }
             finally
             {
