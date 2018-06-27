@@ -36,7 +36,6 @@ namespace PassCypher
             finally
             {
                 sw.Close();
-
             }
             Format.Dash();
             Console.WriteLine("Your password string is:");
