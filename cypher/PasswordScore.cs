@@ -4,18 +4,8 @@ using System.Text.RegularExpressions;
 
 namespace PassCypher
 {
-    internal class PasswordScore
+    internal partial class PasswordScore
     {
-        public enum PassScore
-        {
-            Blank = 0,
-            VeryWeak = 1,
-            Weak = 2,
-            Medium = 3,
-            Strong = 4,
-            VeryStrong = 5
-        }
-
         public static int Score(string password)
         {
             switch (CheckStrength(password))
@@ -89,18 +79,20 @@ namespace PassCypher
         {
             int[] iArray = new int[20];
             int i = 0;
-            int altres = 0;
-            int sumres = 0;
-            int sumpos = 0;
-            int sumneg = 0;
-            int j = 1;
-            int score = 0;
             string numbers = new string(password.Where(c => char.IsDigit(c)).ToArray());
+
             foreach (char c in numbers)
             {
                 iArray[i] = (int)char.GetNumericValue(c);
                 i++;
-            } 
+            }
+
+            int j = 1;
+            int altres = 0;
+            int sumres = 0;
+            int sumpos = 0;
+            int sumneg = 0;
+
             foreach (int a in iArray)
             {
                 if (j % 2 == 1)
@@ -122,9 +114,11 @@ namespace PassCypher
                 sumres += a;
                 j++;
             }
+
             int N = i;
             int posneg = Math.Abs(sumpos - sumneg);
             int sda = 0;
+
             try
             {
                 sda = (sumres / altres);
@@ -133,10 +127,13 @@ namespace PassCypher
             {
                 sda = (sumres / 1);
             }
+
             altres = Math.Abs(altres);
             sda = Math.Abs(sda);
-            int avg = (sumres / i);
-            if (altres == 0)
+            int avg = (sumres / N);
+
+            int score = 0;
+            if (altres == 0 || avg == 0)
             {
                 score = 2;
             }
@@ -173,7 +170,7 @@ namespace PassCypher
             {
                 score++;
             }
-            if ((N + avg + sda) == Math.Ceiling((double)sumres / 2))
+            if ((avg + sda) == Math.Ceiling((double)sumres / 2) || (avg + sda) == N)
             {
                 score++;
                 score++;
@@ -185,6 +182,7 @@ namespace PassCypher
                     score++;
                 }
             }
+
             if ((N <= 2) && (score >= 3))
             {
                 score = 2;

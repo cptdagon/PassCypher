@@ -130,6 +130,7 @@
     <Compile Include="NetTest.cs" />
     <Compile Include="Notification.cs" />
     <Compile Include="PasswordScore.cs" />
+    <Compile Include="PasswordScore.PassScore.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -141,6 +142,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session.cs" />
+    <Compile Include="SessionParameters.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="StringCipher.cs" />
     <Compile Include="User.cs" />

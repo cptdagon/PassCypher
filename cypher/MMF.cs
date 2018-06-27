@@ -2,7 +2,7 @@
 
 namespace PassCypher
 {
-    internal class MMF
+    internal class Memmappedfile
     {
         public static bool Read(string filename)
         {

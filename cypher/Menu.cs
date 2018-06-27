@@ -88,7 +88,7 @@ namespace PassCypher
             Console.WriteLine("Create a new password\n" +
                                 "Load saved passwords");
             Format.Dash();
-            if (MMF.Read("SerStat") == false)
+            if (Memmappedfile.Read("SerStat") == false)
             {
                 Console.ForegroundColor = ConsoleColor.DarkGray;
             }
