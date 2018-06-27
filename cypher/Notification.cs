@@ -33,10 +33,7 @@ namespace PassCypher
                     mail.Body = "this is my test email body";
                     client.Send(mail);
                 }
-                catch
-                {
-
-                }
+                catch{}
                 finally
                 {
                     client.Dispose();
