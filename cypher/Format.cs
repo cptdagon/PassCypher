@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+//using System.Linq;
 
 namespace PassCypher
 {
@@ -32,12 +32,12 @@ namespace PassCypher
             Dash();
             NetTest.NetUpdate();
         }
-        public static string Dots(int i)
-        {
-            const string pool = ".";
-            var chars = Enumerable.Range(0, i)
-                .Select(x => pool[0]);
-            return new string(chars.ToArray());
-        }
+        //public static string Dots(int i)
+        //{
+        //    const string pool = ".";
+        //    var chars = Enumerable.Range(0, i)
+        //        .Select(x => pool[0]);
+        //    return new string(chars.ToArray());
+        //}
     }
 }

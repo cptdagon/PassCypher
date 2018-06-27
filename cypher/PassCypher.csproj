@@ -41,7 +41,9 @@
     </DocumentationFile>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <Prefer32Bit>false</Prefer32Bit>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>PassCypher.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>
+    </NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,6 +53,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>PassCypher.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>PassCypher.Program</StartupObject>
@@ -145,6 +148,7 @@
     <None Include="App.config" />
     <None Include="cypher_2_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="PassCypher.ruleset" />
     <None Include="Properties\app.manifest" />
   </ItemGroup>
   <ItemGroup>
