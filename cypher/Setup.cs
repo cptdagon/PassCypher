@@ -6,7 +6,7 @@ namespace PassCypher
     internal class Setup
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        private static string[] Paths { get; set; }
+        private static string[] Paths = new string[3];/*{ get; set; }*/
         internal static void NewUser()
         {
             Format.Clear();
@@ -64,13 +64,18 @@ namespace PassCypher
         private static void Encrypt(string plaintext, string key, string path)
         {
             string encryptedstring = StringCipher.RjndlEncrypt(plaintext, key);
+            StreamWriter sw = null;
             try
             {
-                StreamWriter sw = new StreamWriter(path, true);
+                sw = new StreamWriter(path, true);
                 sw.WriteLine(encryptedstring);
-                sw.Close();
+                //sw.Close();
             }
             catch { }
+            finally
+            {
+                sw.Close();
+            }
         }
 
         public static string PasswordReadLine()

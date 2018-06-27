@@ -37,7 +37,7 @@ namespace PassCypher
                 Green();
             }
             // Boolean return values used to indicate success  
-            catch
+            catch 
             {
                 //clientSock_client.Close();
                 Red();
@@ -114,6 +114,7 @@ namespace PassCypher
 
         public static AutoResetEvent Sequence { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
         public static void Main()
         {          
             Console.ForegroundColor = ConsoleColor.White;
@@ -127,18 +128,26 @@ namespace PassCypher
             Thread.Sleep(250);
 
             //creates a memory mapped file to monitor server status 
+            MemoryMappedFile mmf1 = null;
+            MemoryMappedFile mmf2 = null;
             try
             {
-                MemoryMappedFile mmf1 = MemoryMappedFile.CreateNew("SerStat", 1000);
+                mmf1 = MemoryMappedFile.CreateNew("SerStat", 1000);
                 SSaccessor = mmf1.CreateViewAccessor();
             }
-            catch { }
+            catch
+            {
+                //mmf1.Dispose();
+            }
             try
             {
-                MemoryMappedFile mmf2 = MemoryMappedFile.CreateNew("NetStat", 1000);
+                mmf2 = MemoryMappedFile.CreateNew("NetStat", 1000);
                 NSaccessor = mmf2.CreateViewAccessor();
             }
-            catch { }
+            catch
+            {
+                //mmf2.Dispose();
+            }
 
             for (int j = 0; j <= 100; j++)
             {
@@ -201,6 +210,8 @@ namespace PassCypher
             Thread.Sleep(200);
             Sequence.Set();
             Thread.Sleep(Timeout.Infinite);
+            mmf1.Dispose();
+            mmf2.Dispose();
         }
     }
 }
