@@ -17,7 +17,7 @@ namespace PassCypher
         private static MemoryMappedViewAccessor NSaccessor;
 
         //list of items used in boot sequence.
-        enum Load { Memory, Encryption };
+        private enum Load { Memory, Encryption }
         private static string Lgen(int i)
         {
             return (((Load)i).ToString());
@@ -64,8 +64,7 @@ namespace PassCypher
                 {
                     Green();
                     return;
-                }
-                
+                }              
             }
             catch { }
             finally
@@ -215,5 +214,3 @@ namespace PassCypher
         }
     }
 }
-
- 
