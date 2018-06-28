@@ -129,6 +129,7 @@
     <Compile Include="MMF.cs" />
     <Compile Include="NetTest.cs" />
     <Compile Include="Notification.cs" />
+    <Compile Include="NumericPattern.cs" />
     <Compile Include="PasswordScore.cs" />
     <Compile Include="PasswordScore.PassScore.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
