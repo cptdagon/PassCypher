@@ -12,7 +12,7 @@ namespace PassCypher
     {
         private static Thread inputThread;
         private static AutoResetEvent getInput, gotInput;
-        private static string input = "";
+        private static string Input { get; set; }
 
         // resets events and spawns background threads
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1810:InitializeReferenceTypeStaticFieldsInline")]
@@ -30,10 +30,11 @@ namespace PassCypher
         //sets new event upon successful readline within time limit
         private static void Read()
         {
+            Input = "";
             while (true)
             {
                 getInput.WaitOne();
-                input = Console.ReadLine();
+                Input = Console.ReadLine();
                 gotInput.Set();
             }
         }
@@ -45,7 +46,7 @@ namespace PassCypher
             getInput.Set();
             bool success = gotInput.WaitOne(timeOutMillisecs);
             if (success)
-                return input;
+                return Input;
             else
                 throw new TimeoutException("User did not provide input within the time-limit.");
         }

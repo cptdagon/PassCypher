@@ -83,6 +83,7 @@ namespace PassCypher
             {
                 score = 2;
             }
+
             if (score >= 3)
             {
                 return -1;
