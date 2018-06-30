@@ -124,6 +124,7 @@
     <Compile Include="Filereceiver.cs" />
     <Compile Include="Format.cs" />
     <Compile Include="Help.cs" />
+    <Compile Include="BootSequence.Load.cs" />
     <Compile Include="LockMenu.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MMF.cs" />

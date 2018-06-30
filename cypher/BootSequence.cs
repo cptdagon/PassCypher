@@ -8,16 +8,13 @@ using System.Threading;
 
 namespace PassCypher
 {
-    class BootSequence
+    partial class BootSequence
     {
         private const int mem_max = 20;
         private static bool boolean1;
         private static bool boolean2;
         private static MemoryMappedViewAccessor SSaccessor;
         private static MemoryMappedViewAccessor NSaccessor;
-
-        //list of items used in boot sequence.
-        private enum Load { Memory, Encryption }
         private static string Lgen(int i)
         {
             return (((Load)i).ToString());
