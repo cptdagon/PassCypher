@@ -18,6 +18,7 @@ namespace PassCypher
                 {
                     Format.Clear();
                     Console.WriteLine("Session has Timed Out");
+                    Console.ReadLine();
                     Format.Dash();
                     return;
                 }
@@ -33,19 +34,7 @@ namespace PassCypher
                         ReadWrite.Passwordgen();
                         break;
                     case "load":
-                        Format.Clear();
-                        ReadWrite.Passwordload();
-                        Console.WriteLine("Press any key to continue");
-                        try
-                        {
-                            choice = Reader.ReadLine(120000);
-                        }
-                        catch (TimeoutException)
-                        {
-                            Format.Clear();
-                            Format.Dash();
-                        }
-                        Format.Clear();
+                        Load();
                         break;
                     case "Synq":
                         Format.Clear();
@@ -71,6 +60,26 @@ namespace PassCypher
                         break;
                 }
             }
+        }
+
+        private static void Load()
+        {
+            Format.Clear();
+            ReadWrite.Passwordload();
+            Console.WriteLine("Press Enter key to continue");
+            try
+            {
+                Reader.ReadLine(120000);
+            }
+            catch (TimeoutException)
+            {
+                Format.Clear();
+                Console.WriteLine("Session has Timed Out");
+                Console.ReadLine();
+                Format.Dash();
+            }
+            Format.Clear();
+            return;
         }
 
         private static void InvalidContext()
