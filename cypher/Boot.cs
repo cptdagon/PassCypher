@@ -20,16 +20,6 @@ namespace PassCypher
 
             //int t = 0;
             while (!BootSequence.Sequence.WaitOne())
-            {
-                //var left = Console.CursorLeft;
-                //var top = Console.CursorTop;
-                //Console.SetCursorPosition(0, 0);
-                //Console.Write("\rBOOTING SYSTEM{0}   ", Format.Dots(t));
-                //Console.SetCursorPosition(left, top);
-                //Thread.Sleep(500);
-                //t++;
-                //if (t == 4) t = 1;
-            }
             
             Format.Clear();
             Console.WriteLine();

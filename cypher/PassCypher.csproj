@@ -121,6 +121,7 @@
     <Compile Include="Boot.cs" />
     <Compile Include="BootSequence.cs" />
     <Compile Include="CryptoRand.cs" />
+    <Compile Include="EnterKey.cs" />
     <Compile Include="Filereceiver.cs" />
     <Compile Include="Format.cs" />
     <Compile Include="Help.cs" />

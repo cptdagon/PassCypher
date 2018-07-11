@@ -69,7 +69,7 @@ namespace PassCypher
             Console.WriteLine("Press Enter key to continue");
             try
             {
-                Reader.ReadLine(120000);
+                EnterKey.EnterToContinue(120000);
             }
             catch (TimeoutException)
             {

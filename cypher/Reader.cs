@@ -38,6 +38,8 @@ namespace PassCypher
                 gotInput.Set();
             }
         }
+
+       
         // sets event and waits for new event to be set within X amount milliseconds
         // if succesful returns readline value. 
         // omit the parameter to read a line without a timeout
@@ -50,5 +52,7 @@ namespace PassCypher
             else
                 throw new TimeoutException("User did not provide input within the time-limit.");
         }
+
+        
     }
 }
