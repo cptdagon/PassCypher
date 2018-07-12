@@ -27,7 +27,7 @@ namespace PassCypher
                 }
             }
             while (key.Key != ConsoleKey.Enter);
-            return (password);
+            return password;
         }
 
         public static string Passworddecrypt(string password, string user)

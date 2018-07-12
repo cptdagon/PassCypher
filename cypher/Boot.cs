@@ -19,7 +19,7 @@ namespace PassCypher
             Threads.Bootproc.Start();
 
             //int t = 0;
-            while (!BootSequence.Sequence.WaitOne())
+            while (!BootSequence.Sequence.WaitOne()) { }
             
             Format.Clear();
             Console.WriteLine();
