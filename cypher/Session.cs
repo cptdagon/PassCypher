@@ -1,4 +1,8 @@
-﻿using System.IO;
+﻿/*                                                          *
+ * Adam Rushby - Dagon Interactive Media - PassCypher 2018  *
+ *                                                          */
+
+using System.IO;
 using System.Linq;
 
 namespace PassCypher

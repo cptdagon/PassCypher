@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*                                                          *
+ * Adam Rushby - Dagon Interactive Media - PassCypher 2018  *
+ *                                                          */
+
+using System;
 using System.Text;
 using System.Security.Cryptography;
 using System.IO;

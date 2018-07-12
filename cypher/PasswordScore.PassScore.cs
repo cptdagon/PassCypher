@@ -1,4 +1,8 @@
-﻿namespace PassCypher
+﻿/*                                                          *
+ * Adam Rushby - Dagon Interactive Media - PassCypher 2018  *
+ *                                                          */
+
+namespace PassCypher
 {
     internal partial class PasswordScore
     {

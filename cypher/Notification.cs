@@ -1,4 +1,8 @@
-﻿using System.Net;
+﻿/*                                                          *
+ * Adam Rushby - Dagon Interactive Media - PassCypher 2018  *
+ *                                                          */
+
+using System.Net;
 using System.Net.Mail;
 using System.Reflection;
 using System;

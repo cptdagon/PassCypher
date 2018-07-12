@@ -1,5 +1,8 @@
-﻿using System;
-//using System.Linq;
+﻿/*                                                          *
+ * Adam Rushby - Dagon Interactive Media - PassCypher 2018  *
+ *                                                          */
+
+using System;
 
 namespace PassCypher
 {
@@ -32,12 +35,5 @@ namespace PassCypher
             Dash();
             NetTest.NetUpdate();
         }
-        //public static string Dots(int i)
-        //{
-        //    const string pool = ".";
-        //    var chars = Enumerable.Range(0, i)
-        //        .Select(x => pool[0]);
-        //    return new string(chars.ToArray());
-        //}
     }
 }

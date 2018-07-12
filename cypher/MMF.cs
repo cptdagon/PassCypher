@@ -1,4 +1,8 @@
-﻿using System.IO.MemoryMappedFiles;
+﻿/*                                                          *
+ * Adam Rushby - Dagon Interactive Media - PassCypher 2018  *
+ *                                                          */
+
+using System.IO.MemoryMappedFiles;
 
 namespace PassCypher
 {
