@@ -70,8 +70,6 @@ namespace PassCypher
                 return Input;
             else
                 throw new TimeoutException("User did not provide input within the time-limit.");
-        }
-
-        
+        }      
     }
 }

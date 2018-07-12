@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Reflection;
 using System;
+
 namespace PassCypher
 {
     internal class Notification
