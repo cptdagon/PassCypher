@@ -32,11 +32,12 @@ namespace PassCypher
             }
 
             SumOf(iArray, ref j);
-            int N = i;        
+            int N = i;
             DivBy0Catch();
             Absolute();
             Avg = (Sumres / N);
-            PatternScore(N);
+            PatternScorePt1();
+            PatternScorePt2(N);
 
             if ((N <= 2) && (Score >= 3))
             {
@@ -53,7 +54,42 @@ namespace PassCypher
             }
         }
 
-        private static void PatternScore(int N)
+        private static void PatternScorePt2(int N)
+        {
+            if ((Sumpos == 0) || (Sumneg == 0))
+            {
+                if (Avg == Sumdivaltsum)
+                {
+                    Score++;
+                }
+            }
+
+            if ((Altres + Posneg) == (Sumneg))
+            {
+                Score++;
+            }
+            if ((Avg + Sumdivaltsum) == Math.Ceiling((double)Sumres / 2) || (Avg + Sumdivaltsum) == N)
+            {
+                Score++;
+                Score++;
+            }
+            if (Posneg == 0)
+            {
+                Score++;
+            }
+            else
+            {
+                if ((((Sumres / Posneg) + 1) == Sumneg) || (((Sumres / Posneg) + 1) == Sumpos))
+                {
+                    if ((((Sumres / Posneg) - 1) == Sumneg) || (((Sumres / Posneg) - 1) == Sumpos))
+                    {
+                        Score++;
+                    }
+                }
+            }
+        }
+
+        private static void PatternScorePt1()
         {
             Score = 0;
             if (Altres == 0 || Avg == 0)
@@ -78,39 +114,9 @@ namespace PassCypher
             {
                 Score++;
             }
-            if ((Sumpos == 0) || (Sumneg == 0))
-            {
-                if (Avg == Sumdivaltsum)
-                {
-                    Score++;
-                }
-            }
             if ((Altres + Posneg) == (Sumpos))
             {
                 Score++;
-            }
-            if ((Altres + Posneg) == (Sumneg))
-            {
-                Score++;
-            }
-            if ((Avg + Sumdivaltsum) == Math.Ceiling((double)Sumres / 2) || (Avg + Sumdivaltsum) == N)
-            {
-                Score++;
-                Score++;
-            }
-            if (Posneg == 0)
-            {
-                Score++;
-            }
-            else
-            {
-                if ((((Sumres / Posneg) + 1) == Sumneg) || (((Sumres / Posneg) + 1) == Sumpos))
-                {
-                    if ((((Sumres / Posneg) - 1) == Sumneg) || (((Sumres / Posneg) - 1) == Sumpos))
-                    {
-                        Score++;
-                    }
-                }
             }
         }
 
