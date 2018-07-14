@@ -22,7 +22,6 @@ namespace PassCypher
             };
             Threads.Bootproc.Start();
 
-            //int t = 0;
             while (!BootSequence.Sequence.WaitOne()) { }
             
             Format.Clear();

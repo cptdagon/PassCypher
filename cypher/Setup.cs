@@ -52,7 +52,7 @@ namespace PassCypher
         private static string PasswordStrength()
         {
             Format.Dash();
-            Console.WriteLine("\t\t  Very Weak     Medium    Very String ");
+            Console.WriteLine("\t\t  Very Weak     Medium    Very Strong ");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("\t\t█████████████");
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -73,7 +73,6 @@ namespace PassCypher
             {
                 sw = new StreamWriter(path, true);
                 sw.WriteLine(encryptedstring);
-                //sw.Close();
             }
             catch { }
             finally

@@ -9,10 +9,19 @@ namespace PassCypher
 {
     class NumericPattern
     {
+        private static int Score { get; set; }
+        private static int Altres { get; set; }
+        private static int Sumres { get; set; }
+        private static int Sumpos { get; set; }
+        private static int Sumneg { get; set; }
+        private static int Posneg { get; set; }
+        private static int Sumdivaltsum { get; set; }
+        private static int Avg { get; set; }
+
         public static int NumberPattern(string password)
         {
             int[] iArray = new int[20];
-            VarInit(out int altres, out int sumres, out int sumpos, out int sumneg, out int i, out int j);
+            VarInit(out int i, out int j);
 
             string numbers = new string(password.Where(c => char.IsDigit(c)).ToArray());
 
@@ -22,73 +31,19 @@ namespace PassCypher
                 i++;
             }
 
-            SumOf(iArray, ref j, ref altres, ref sumres, ref sumpos, ref sumneg);
+            SumOf(iArray, ref j);
+            int N = i;        
+            DivBy0Catch();
+            Absolute();
+            Avg = (Sumres / N);
+            PatternScore(N);
 
-            int N = i;
-            int posneg = Math.Abs(sumpos - sumneg);
-            int sda = DivBy0Catch(altres, sumres);
-
-            altres = Math.Abs(altres);
-            sda = Math.Abs(sda);
-            int avg = (sumres / N);
-
-            int score = 0;
-            if (altres == 0 || avg == 0)
+            if ((N <= 2) && (Score >= 3))
             {
-                score = 2;
-            }
-            if (posneg == altres)
-            {
-                score++;
-                score++;
-            }
-            if (posneg == avg)
-            {
-                score++;
-            }
-            if (altres == avg)
-            {
-                score++;
-                score++;
-            }
-            if ((sda * avg) == sumres)
-            {
-                score++;
-            }
-            if ((sumpos == 0) || (sumneg == 0))
-            {
-                if (avg == sda)
-                {
-                    score++;
-                }
-            }
-            if ((altres + posneg) == (sumpos))
-            {
-                score++;
-            }
-            if ((altres + posneg) == (sumneg))
-            {
-                score++;
-            }
-            if ((avg + sda) == Math.Ceiling((double)sumres / 2) || (avg + sda) == N)
-            {
-                score++;
-                score++;
-            }
-            if ((((sumres / posneg) + 1) == sumneg) || (((sumres / posneg) + 1) == sumpos))
-            {
-                if ((((sumres / posneg) - 1) == sumneg) || (((sumres / posneg) - 1) == sumpos))
-                {
-                    score++;
-                }
+                Score = 2;
             }
 
-            if ((N <= 2) && (score >= 3))
-            {
-                score = 2;
-            }
-
-            if (score >= 3)
+            if (Score >= 3)
             {
                 return -1;
             }
@@ -98,53 +53,120 @@ namespace PassCypher
             }
         }
 
-        private static int DivBy0Catch(int altres, int sumres)
+        private static void PatternScore(int N)
         {
-            int sda = 0;
+            Score = 0;
+            if (Altres == 0 || Avg == 0)
+            {
+                Score = 2;
+            }
+            if (Posneg == Altres)
+            {
+                Score++;
+                Score++;
+            }
+            if (Posneg == Avg)
+            {
+                Score++;
+            }
+            if (Altres == Avg)
+            {
+                Score++;
+                Score++;
+            }
+            if ((Sumdivaltsum * Avg) == Sumres)
+            {
+                Score++;
+            }
+            if ((Sumpos == 0) || (Sumneg == 0))
+            {
+                if (Avg == Sumdivaltsum)
+                {
+                    Score++;
+                }
+            }
+            if ((Altres + Posneg) == (Sumpos))
+            {
+                Score++;
+            }
+            if ((Altres + Posneg) == (Sumneg))
+            {
+                Score++;
+            }
+            if ((Avg + Sumdivaltsum) == Math.Ceiling((double)Sumres / 2) || (Avg + Sumdivaltsum) == N)
+            {
+                Score++;
+                Score++;
+            }
+            if (Posneg == 0)
+            {
+                Score++;
+            }
+            else
+            {
+                if ((((Sumres / Posneg) + 1) == Sumneg) || (((Sumres / Posneg) + 1) == Sumpos))
+                {
+                    if ((((Sumres / Posneg) - 1) == Sumneg) || (((Sumres / Posneg) - 1) == Sumpos))
+                    {
+                        Score++;
+                    }
+                }
+            }
+        }
 
+        private static void Absolute()
+        {
+            Posneg = Math.Abs(Sumpos - Sumneg);           
+            Altres = Math.Abs(Altres);
+            Sumdivaltsum = Math.Abs(Sumdivaltsum);
+        }
+
+        private static void DivBy0Catch()
+        {
+            Sumdivaltsum = 0;
             try
             {
-                sda = (sumres / altres);
+                Sumdivaltsum = (Sumres / Altres);
             }
             catch (DivideByZeroException)
             {
-                sda = (sumres / 1);
+                Sumdivaltsum = (Sumres / 1);
             }
-
-            return sda;
         }
 
-        private static void VarInit(out int altres, out int sumres, out int sumpos, out int sumneg, out int i, out int j)
+        private static void VarInit(out int i, out int j)
         {
-            altres = 0;
-            sumres = 0;
-            sumpos = 0;
-            sumneg = 0;
+            Altres = 0;
+            Sumres = 0;
+            Sumpos = 0;
+            Sumneg = 0;
+            Posneg = 0;
+            Avg = 0;
             i = 0;
             j = 1;
         }
 
-        private static void SumOf(int[] iArray, ref int j, ref int altres, ref int sumres, ref int sumpos, ref int sumneg)
+        private static void SumOf(int[] iArray, ref int j)
         {
             foreach (int a in iArray)
             {
                 if (j % 2 == 1)
                 {
-                    altres += a;
+                    Altres += a;
                 }
                 else
                 {
-                    altres -= a;
+                    Altres -= a;
                 }
                 if (a % 2 == 1)
                 {
-                    sumneg += a;
+                    Sumneg += a;
                 }
                 else
                 {
-                    sumpos += a;
+                    Sumpos += a;
                 }
-                sumres += a;
+                Sumres += a;
                 j++;
             }
         }

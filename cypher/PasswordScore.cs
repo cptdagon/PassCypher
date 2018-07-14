@@ -14,6 +14,7 @@ namespace PassCypher
             switch (CheckStrength(password))
             {
                 case PassScore.Blank:
+                    Console.ForegroundColor = ConsoleColor.Red;
                     return 0;
                 case PassScore.VeryWeak:
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -48,7 +49,7 @@ namespace PassCypher
                 return PassScore.VeryWeak;
             }
 
-            if (password.Length >= 8)
+            if (password.Length >= 5)
             {
                 score++;
             }

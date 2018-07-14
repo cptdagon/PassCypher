@@ -148,6 +148,7 @@
     <Compile Include="SessionParameters.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="StringCipher.cs" />
+    <Compile Include="Threads.cs" />
     <Compile Include="User.cs" />
     <Compile Include="_2FA.cs" />
   </ItemGroup>
