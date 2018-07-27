@@ -18,6 +18,8 @@ namespace PassCypher
             AssemblyDescriptionAttribute attribute = (AssemblyDescriptionAttribute)Attribute.GetCustomAttribute(assembly, type);
             FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
             Console.WriteLine("");
+            Console.WriteLine("Press enter to continue");
+            Console.ReadLine();
             Format.Dash();
         }
     }

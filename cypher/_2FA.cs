@@ -37,8 +37,7 @@ namespace PassCypher
             }
             catch (Exception e)
             {
-                Console.WriteLine("exception: " + e.Message);
-                //sr.Close();
+                Console.WriteLine("exception: " + e.Message);                
             }
             finally
             {

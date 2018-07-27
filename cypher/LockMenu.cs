@@ -46,6 +46,10 @@ namespace PassCypher
                     case "exit":
                         Environment.Exit(0);
                         break;
+                    case "help":
+                        Help.GetHelp();
+                        Format.Clear();
+                        break;
                     default:
                         InvalidContext();
                         Console.ReadLine();

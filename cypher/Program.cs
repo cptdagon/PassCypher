@@ -20,7 +20,7 @@ namespace PassCypher
             Threads.Netproc.Start();
             Session.Setmode();
             LockMenu.Lockmenu();
-            Notification.EmailUser();           
+            //Notification.EmailUser();           
         }
     }
 }
