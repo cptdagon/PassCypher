@@ -71,9 +71,9 @@ namespace PassCypher
                 score++;
             }
 
-            if (Regex.Match(password, @".[ ,!,@,#,$,%,^,&,*,?,_,~,-,£,(,)]", RegexOptions.ECMAScript).Success)
+            if (!Regex.Match(password, @".[ ,!,@,#,$,%,^,&,*,?,_,~,-,£,(,)]", RegexOptions.ECMAScript).Success)
             {
-                score = 2;
+                score =2;
             }
 
             return (PassScore)score;
