@@ -6,8 +6,9 @@ using System;
 
 namespace PassCypher
 {
-    internal static class Format
+    internal class Format
     {
+        private Format() { }
         public static void Dash()
         {
             string dashes = "";

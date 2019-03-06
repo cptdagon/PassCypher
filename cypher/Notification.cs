@@ -9,8 +9,9 @@ using System;
 
 namespace PassCypher
 {
-    internal static class Notification
+    internal class Notification
     {
+        private Notification() { }
         private const string password = "";
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2202:Do not dispose objects multiple times")]

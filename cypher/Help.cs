@@ -8,8 +8,9 @@ using System.Reflection;
 
 namespace PassCypher
 {
-    internal static class Help
+    internal class Help
     {
+        private Help() { }
         public static void GetHelp()
         {
             Format.Clear();

@@ -6,8 +6,9 @@ using System;
 
 namespace PassCypher
 {
-    internal static class MainMenu
+    internal class MainMenu
     {
+        private MainMenu() { }
         public static void Mainmenu()
         {
             string choice = "";

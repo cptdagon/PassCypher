@@ -6,8 +6,9 @@ using System.Threading;
 
 namespace PassCypher
 {
-    class Threads
+    internal class Threads
     {
+        private Threads() { }
         public static Thread Bootproc { get; set; }
         public static Thread Netproc { get; set; }
     }

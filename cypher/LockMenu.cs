@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace PassCypher
 {
-    class LockMenu
+    internal class LockMenu
     {
         private LockMenu() { }
         public static void Lockmenu()

@@ -9,6 +9,7 @@ namespace PassCypher
 {
     internal partial class PasswordScore
     {
+        private PasswordScore() { }
         public static int Score(string password)
         {
             switch (CheckStrength(password))

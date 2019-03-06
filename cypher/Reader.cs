@@ -8,8 +8,9 @@ using System.Threading;
 namespace PassCypher
 {
     // Implementation of Console.Readline combined with a variable Timeout Exception
-    class Reader
+    internal class Reader
     {
+        private Reader() { }
         private static Thread inputThread;
         private static AutoResetEvent getInput, gotInput;
         private static string Input { get; set; }

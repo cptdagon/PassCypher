@@ -7,8 +7,9 @@ using System.IO;
 
 namespace PassCypher
 {
-    internal static class ReadWrite
+    internal class ReadWrite
     {
+        private ReadWrite() { }
         public static void Passwordgen()
         {
             string tag = CryptoRand.RandomString(20);

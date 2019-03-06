@@ -9,7 +9,7 @@ using System.Net.Sockets;
 
 namespace PassCypher
 {
-    class NetTest
+    internal class NetTest
     {
         private NetTest() { }
         private static int Left { get; set; }

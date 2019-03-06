@@ -9,6 +9,7 @@ namespace PassCypher
 {
     internal class User
     {
+        private User() { }
         internal static string[] Fetchusers()
         {
             string[] Directorylist = Directory.GetDirectories("Users");

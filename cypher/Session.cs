@@ -9,6 +9,7 @@ namespace PassCypher
 {
     internal class Session
     {
+        private Session() { }
         public static void Setsession(string masterkey, string user)
         {
             SessionParameters.Pass = masterkey;

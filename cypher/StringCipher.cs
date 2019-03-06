@@ -13,6 +13,7 @@ namespace PassCypher
 {
     internal class StringCipher
     {
+        private StringCipher() { }
         // This constant is used to determine the keysize of the encryption algorithm in bits.
         // We divide this by 8 within the code below to get the equivalent number of bytes.
         private const int Keysize = 32;

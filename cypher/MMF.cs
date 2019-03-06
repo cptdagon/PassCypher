@@ -6,8 +6,9 @@ using System.IO.MemoryMappedFiles;
 
 namespace PassCypher
 {
-    internal static class Memmappedfile
+    internal class Memmappedfile
     {
+        private Memmappedfile() { }
         public static bool Read(string filename)
         {
             using (MemoryMappedFile mmf = MemoryMappedFile.OpenExisting(filename))
