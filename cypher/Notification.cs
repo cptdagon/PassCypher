@@ -9,7 +9,7 @@ using System;
 
 namespace PassCypher
 {
-    internal class Notification
+    internal static class Notification
     {
         private const string password = "";
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]

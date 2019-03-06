@@ -10,7 +10,7 @@ using System.Text;
 
 namespace PassCypher
 {
-    internal class Filereceiver
+    internal static class Filereceiver
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
         public static void SendFile()

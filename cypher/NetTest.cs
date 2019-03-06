@@ -11,6 +11,7 @@ namespace PassCypher
 {
     class NetTest
     {
+        private NetTest() { }
         private static int Left { get; set; }
         private static int Top { get; set; }     
         private static bool ServerShiftReg1 { get; set; }

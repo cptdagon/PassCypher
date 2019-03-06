@@ -7,7 +7,7 @@ using System.IO;
 
 namespace PassCypher
 {
-    internal class Password
+    internal static class Password
     {
         public static string Passcheck()
         {

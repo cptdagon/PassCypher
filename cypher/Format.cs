@@ -6,7 +6,7 @@ using System;
 
 namespace PassCypher
 {
-    internal class Format
+    internal static class Format
     {
         public static void Dash()
         {

@@ -9,6 +9,7 @@ namespace PassCypher
 {
     class LockMenu
     {
+        private LockMenu() { }
         public static void Lockmenu()
         {
             while (true)

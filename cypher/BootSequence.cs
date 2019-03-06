@@ -12,7 +12,7 @@ using System.Threading;
 
 namespace PassCypher
 {
-    partial class BootSequence
+    static partial class BootSequence
     {
         private const int mem_max = 20;
         private static bool boolean1;

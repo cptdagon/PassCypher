@@ -6,7 +6,7 @@ using System.IO.MemoryMappedFiles;
 
 namespace PassCypher
 {
-    internal class Memmappedfile
+    internal static class Memmappedfile
     {
         public static bool Read(string filename)
         {

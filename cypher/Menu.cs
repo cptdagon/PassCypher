@@ -6,7 +6,7 @@ using System;
 
 namespace PassCypher
 {
-    internal class MainMenu
+    internal static class MainMenu
     {
         public static void Mainmenu()
         {

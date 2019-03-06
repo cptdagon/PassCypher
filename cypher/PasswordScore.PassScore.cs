@@ -4,7 +4,7 @@
 
 namespace PassCypher
 {
-    internal partial class PasswordScore
+    internal static partial class PasswordScore
     {
         public enum PassScore
         {

@@ -10,7 +10,7 @@ using System.Threading;
 
 namespace PassCypher
 {
-    internal class Boot
+    internal static class Boot
     {
         public static void BootSetup()
         {

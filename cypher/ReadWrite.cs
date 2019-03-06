@@ -7,7 +7,7 @@ using System.IO;
 
 namespace PassCypher
 {
-    internal class ReadWrite
+    internal static class ReadWrite
     {
         public static void Passwordgen()
         {

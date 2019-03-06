@@ -9,6 +9,7 @@ namespace PassCypher
 {
     class EnterKey
     {
+        private EnterKey() { }
         private static Thread inputThread;
         private static AutoResetEvent getKey, gotKey;
 

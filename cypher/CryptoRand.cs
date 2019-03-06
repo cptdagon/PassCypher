@@ -8,7 +8,7 @@ using System.Text;
 
 namespace PassCypher
 {
-    internal class CryptoRand
+    internal static class CryptoRand
     {
         public static string RandomString(int length)
         {           
